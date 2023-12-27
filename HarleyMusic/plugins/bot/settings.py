@@ -10,8 +10,8 @@ from pyrogram.types import (
     Message,
 )
 import config
-from HarlyMusic import app
-from HarlyMusic.utils.database import (
+from HarleyMusic import app
+from HarleyMusic.utils.database import (
     add_nonadmin_chat,
     get_authuser,
     get_authuser_names,
@@ -27,15 +27,15 @@ from HarlyMusic.utils.database import (
     skip_off,
     skip_on,
 )
-from HarlyMusic.utils.decorators.admins import ActualAdminCB
-from HarlyMusic.utils.decorators.language import language, languageCB
-from HarlyMusic.utils.inline.settings import (
+from HarleyMusic.utils.decorators.admins import ActualAdminCB
+from HarleyMusic.utils.decorators.language import language, languageCB
+from HarleyMusic.utils.inline.settings import (
     auth_users_markup,
     playmode_users_markup,
     setting_markup,
     vote_mode_markup,
 )
-from HarlyMusic.utils.inline.start import private_panel
+from HarleyMusic.utils.inline.start import private_panel
 from config import BANNED_USERS, OWNER_ID
 
 @app.on_message(
