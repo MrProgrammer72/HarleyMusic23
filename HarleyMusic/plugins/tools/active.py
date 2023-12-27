@@ -1,4 +1,4 @@
-from pyrogram import filters
+from pyrogram import filters, Client 
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
 from unidecode import unidecode
 
