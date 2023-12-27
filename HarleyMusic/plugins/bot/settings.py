@@ -4,12 +4,14 @@ from pyrogram.errors import MessageNotModified
 from pyrogram.types import (
     CallbackQuery,
     InlineKeyboardButton,
+    InputMediaPhoto,
+    InputMediaVideo,
     InlineKeyboardMarkup,
     Message,
 )
-
-from HarleyMusic import app
-from HarleyMusic.utils.database import (
+import config
+from HarlyMusic import app
+from HarlyMusic.utils.database import (
     add_nonadmin_chat,
     get_authuser,
     get_authuser_names,
@@ -25,17 +27,16 @@ from HarleyMusic.utils.database import (
     skip_off,
     skip_on,
 )
-from HarleyMusic.utils.decorators.admins import ActualAdminCB
-from HarleyMusic.utils.decorators.language import language, languageCB
-from HarleyMusic.utils.inline.settings import (
+from HarlyMusic.utils.decorators.admins import ActualAdminCB
+from HarlyMusic.utils.decorators.language import language, languageCB
+from HarlyMusic.utils.inline.settings import (
     auth_users_markup,
     playmode_users_markup,
     setting_markup,
     vote_mode_markup,
 )
-from HarleyMusic.utils.inline.start import private_panel
+from HarlyMusic.utils.inline.start import private_panel
 from config import BANNED_USERS, OWNER_ID
-
 
 @app.on_message(
     filters.command(["settings", "setting"]) & filters.group & ~BANNED_USERS
@@ -73,7 +74,7 @@ async def gib_repo(client, CallbackQuery, _):
     await CallbackQuery.edit_message_media(
         InputMediaPhoto("https://graph.org/file/20a9b468833f3088556b1.jpg", caption="<b><u>Fᴇᴇʟ Fʀᴇᴇ ᴛᴏ Dᴏɴᴀᴛᴇ</u></b>\n\nUᴘɪ ɪᴅ: satyammahajan070@paytm\nBɪɴᴀɴᴄᴇ ɪᴅ: 824335517"),
     ),
-    return await CallbackQuery.edit_message_reply_markup(
+    return await CallbackQuery.edit_message_text(
         reply_markup=InlineKeyboardMarkup(
         [[InlineKeyboardButton(text="ʙᴀᴄᴋ", callback_data=f"settingsback_helper")]]
         ),
